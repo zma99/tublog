@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from tublogApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.inicio, name='inicio'),
+    path('posteos/', views.posteos, name='posteos'),
+    path('noticias/', views.noticias, name='noticias'),
+    path('nosotros/', views.nosotros, name='nosotros'),
+    path('contacto/', views.contacto, name='contacto'),
 ]

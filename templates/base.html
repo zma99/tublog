@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}TITUTLO{% endblock titulo %}</title>
+
+    {# Cargamos la librería #}
+	{% load bootstrap4 %}
+ 
+	{# CSS Bootstrap #}
+	{% bootstrap_css %}
+
+</head>
+<body>
+    
+    {% block body %}
+
+
+
+    {% endblock body %}
+
+
+    {# JS y jQuery Bootstrap #}
+	{% bootstrap_javascript jquery='full' %}
+</body>
+</html>
