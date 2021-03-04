@@ -19,11 +19,83 @@
 </head>
 <body>
     <!-- Barra de navegación -->
-    <nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         {% block nav %}
-
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'inicio' %}">tuBlog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link {%block class-a-inicio%}active{%endblock class-a-inicio%}" aria-current="page" href="{%block a-href-inicio%}{%endblock a-href-inicio%}">Inicio</a>
+                </li>
+                {%block btn-nosotros%}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="{% url 'noticias' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Noticias
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Deportes</a>
+                    <a class="dropdown-item" href="#">Política</a>
+                    <a class="dropdown-item" href="#">Tecnología</a>
+                  </div>
+                </li>
+                {%endblock btn-nosotros%}
+                <li class="nav-item">
+                  <a class="nav-link {%block class-a-posteos%}{%endblock class-a-posteos%}" href="{% url 'posteos' %}">Posteos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {%block class-a-nosotros%}{%endblock class-a-nosotros%}" href="{%block a-href-nosotros%}{% url 'nosotros' %}{%endblock a-href-nosotros%}">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {%block class-a-contacto%}{%endblock class-a-contacto%}" href="{%block a-href-contacto%}{% url 'contacto' %}{%endblock a-href-contacto%}">Contacto</a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#ventanaLogin">
+                        Inicar sesión
+                    </button>
+                  </li>
+              </ul>
+            </div>
+          </div>
         {% endblock nav %}
     </nav>
+
+    <div id="ventanaLogin" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Inicio de sesión</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Usuario</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Recordar mi usuario</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                    <button type="button" class="btn btn-primary btn-close" data-dismiss="modal">Cancelar</button>
+                </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
 
     <!-- Encabezado -->

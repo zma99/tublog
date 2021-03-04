@@ -2,6 +2,16 @@
 
 {% block titulo %}Posteos{% endblock titulo %}
 
+{%block class-a-inicio%}{%endblock class-a-inicio%}{%block a-href-inicio%}{% url 'inicio' %}{%endblock a-href-inicio%}
+
+{%block class-a-posteos%}active{%endblock class-a-posteos%}
+
+{%block class-a-nosotros%}{%endblock class-a-nosotros%}{%block a-href-nosotros%}{% url 'nosotros' %}{%endblock a-href-nosotros%}
+
+{%block class-a-contacto%}{%endblock class-a-contacto%}{%block a-href-contacto%}{% url 'contacto'%}{%endblock a-href-contacto%}
+
+{%block btn-nosotros%}{%endblock btn-nosotros%}
+
 {% block body %}
 
 <h1>Página de posteos</h1>
