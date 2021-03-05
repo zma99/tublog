@@ -24,3 +24,7 @@ def nosotros(request):
 def contacto(request):
     
     return render(request, 'contacto.html')
+
+def registrar(request):
+
+    return render(request, 'registrar.html')
