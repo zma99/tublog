@@ -1,4 +1,7 @@
 from django.db import models
+from datetime import datetime, date
+from django.utils import timezone
+
 
 class Usuario(models.Model):
     usuario = models.CharField(max_length=15, primary_key=True, unique=True)
@@ -11,16 +14,17 @@ class Usuario(models.Model):
     ciudad = models.CharField(max_length=15)
     provincia = models.CharField(max_length=15)
 
+class Comentario(models.Model):
+    id_comentario = models.AutoField(primary_key=True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
 class Posteo(models.Model):
-    id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=10)
-    apellido = models.CharField(max_length=15)
     titulo = models.CharField(max_length=20)
+    descripcion = models.TextField(blank=True)
     objeto_panel = models.Manager()
-    comentario = models.CharField(max_length=50)
     imagen = models.ImageField(upload_to = 'photos')
-   
+    id_comentario = models.ForeignKey(Comentario, on_delete=models.CASCADE, default=None)
+    fecha_publicacion = models.DateTimeField(default=timezone.now)
 
 
 class Contacto(models.Model):
