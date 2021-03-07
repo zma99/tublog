@@ -67,7 +67,7 @@ def login(request):
         formulario = formLogin(request.POST)
         contexto = { 'formulario':formulario }
 
-    if formulario.authenticate():
+    if formulario.full_clean():
         return print("DATOS CORRECTOS")
     
     return render(request, 'login.html', contexto)
