@@ -15,10 +15,17 @@
 
 {% block body %}
 
+<style> 
+        body {
+        background-color:rgba(137, 43, 226, 0.452)
+        }
+</style>
 
 <h1>CONTACTO</h1>
+
 <div class="container-fluid">
-    
+
+   
     <form method="POST">
         {% csrf_token %}
 
@@ -30,4 +37,8 @@
     </form>
 </div>
 
+
+  
+
+  
 {% endblock body %}
