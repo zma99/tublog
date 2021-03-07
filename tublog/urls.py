@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
 from tublogApp import views
 
 
@@ -22,11 +23,10 @@ from tublogApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.inicio, name='inicio'),
+    path('', views.base, name='base'),
+    path('inicio', views.inicio, name='inicio'),
     path('posteos/', views.posteos, name='posteos'),
-    path('noticias/', views.noticias, name='noticias'),
     path('nosotros/', views.nosotros, name='nosotros'),
     path('contacto/', views.contacto, name='contacto'),
-    path('registrar/', views.registrar, name='registrar'),  
-    path('iniciar_sesion/', views.login, name='login'),
+    path('accounts/', include('django.contrib.auth.urls')), 
 ]

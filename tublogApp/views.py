@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
-from .forms import formRegistro, formContacto, formLogin
+from .forms import formContacto
+
+def base(request):
+
+    return inicio(request)
 
 def inicio(request):
     
@@ -10,11 +14,6 @@ def inicio(request):
 def posteos(request):
     
     return render(request, 'posteos.html')
-
-
-def noticias(request):
-    
-    return render(request, 'noticias.html')
 
 
 def nosotros(request):
@@ -40,7 +39,7 @@ def contacto(request):
     return render(request, 'contacto.html', contexto)
 
 
-def registrar(request):
+'''def registrar(request):
 
     if request.method == 'GET':
         formulario = formRegistro()
@@ -55,9 +54,11 @@ def registrar(request):
         formulario.save()
         return redirect('inicio')
 
-    return render(request, 'registrar.html', contexto)
+    return render(request, 'registrar.html', contexto)'''
 
-def login(request):
+
+
+'''def login(request):
     
     if request.method == 'GET':
         formulario = formLogin()
@@ -70,5 +71,5 @@ def login(request):
     if formulario.full_clean():
         return print("DATOS CORRECTOS")
     
-    return render(request, 'login.html', contexto)
+    return render(request, 'login.html', contexto)'''
 
