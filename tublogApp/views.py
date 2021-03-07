@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import formRegistro
 
 
 def inicio(request):
@@ -25,6 +26,20 @@ def contacto(request):
     
     return render(request, 'contacto.html')
 
+
 def registrar(request):
 
-    return render(request, 'registrar.html')
+    if request.method == 'GET':
+        formulario = formRegistro()
+        contexto = { 'formulario':formulario }
+
+    if request.method == 'POST':
+        formulario = formRegistro(request.POST)
+        print(formulario)
+        contexto = { 'formulario':formulario }
+
+    if formulario.is_valid():
+        formulario.save()
+        return redirect('inicio')
+
+    return render(request, 'registrar.html', contexto)
