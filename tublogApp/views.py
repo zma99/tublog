@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import formRegistro, formContacto
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
+from django.contrib import auth
+from .forms import formRegistro, formContacto, formLogin
 
 def inicio(request):
     
@@ -60,5 +59,16 @@ def registrar(request):
 
 def login(request):
     
-    return render(request, 'login.html')
+    if request.method == 'GET':
+        formulario = formLogin()
+        contexto = { 'formulario':formulario }
+
+    if request.method == 'POST':
+        formulario = formLogin(request.POST)
+        contexto = { 'formulario':formulario }
+
+    if formulario.authenticate():
+        return print("DATOS CORRECTOS")
+    
+    return render(request, 'login.html', contexto)
 

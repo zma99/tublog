@@ -35,9 +35,10 @@
                 <li class="nav-item">
                   <a class="nav-link {%block class-a-inicio%}active{%endblock class-a-inicio%}" aria-current="page" href="{%block a-href-inicio%}{%endblock a-href-inicio%}">Inicio</a>
                 </li>
-                {%block btn-nosotros%}
+                
+                
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="{% url 'noticias' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle {%block class-noticias%}{%endblock class-noticias%}" href="{% url 'noticias' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Noticias
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -46,7 +47,8 @@
                     <a class="dropdown-item" href="#">Tecnología</a>
                   </div>
                 </li>
-                {%endblock btn-nosotros%}
+  
+                
                 <li class="nav-item">
                   <a class="nav-link {%block class-a-posteos%}{%endblock class-a-posteos%}" href="{% url 'posteos' %}">Posteos</a>
                 </li>
@@ -57,18 +59,23 @@
                     <a class="nav-link {%block class-a-contacto%}{%endblock class-a-contacto%}" href="{%block a-href-contacto%}{% url 'contacto' %}{%endblock a-href-contacto%}">Contacto</a>
                   </li>
               </ul>
+              {% block boton-login %}
               <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#ventanaLogin">
+                    <a href="{% url 'login' %}">
+                      <button class="btn btn-primary" data-toggle="modal" data-target="#ventanaLogin">
                         Inicar sesión
-                    </button>
+                      </button>
+                    </a>
                   </li>
               </ul>
+              {% endblock boton-login %}
             </div>
           </div>
         {% endblock nav %}
     </nav>
 
+    <!-- Model Login
     <div id="ventanaLogin" class="modal fade" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -100,7 +107,7 @@
           </div>
         </div>
     </div>
-
+    -->
 
     <!-- Encabezado -->
     <header>
@@ -117,7 +124,8 @@
     <!-- Pié de página -->
     <footer class="footer">
         <div class="container">
-            <div class="row">             
+            <div class="row">
+              {% block enlaces %}             
                 <div class="col-4 offset-1 col-sm-2">
                     <h5>Links</h5>
                     <ul class="list-unstyled">
@@ -128,6 +136,7 @@
                     </ul>
                   
                 </div>
+                {% endblock enlaces %}
                 <!-- 
                 <div class="col-7 col-sm-5">
                     <h5>Our Address</h5>

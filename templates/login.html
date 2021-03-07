@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Iniciar sesión{% endblock titulo %}
+
+{%block class-a-inicio%}{%endblock class-a-inicio%}{%block a-href-inicio%}{% url 'inicio' %}{%endblock a-href-inicio%}
+
+{%block class-a-posteos%}{%endblock class-a-posteos%}{%block a-href-posteos%}{% url 'posteos' %}{%endblock a-href-posteos%}
+
+{%block class-a-nosotros%}{%endblock class-a-nosotros%}{%block a-href-nosotros%}{% url 'nosotros' %}{%endblock a-href-nosotros%}
+
+{%block class-a-contacto%}{%endblock class-a-contacto%}{%block a-href-contacto%}{% url 'contacto' %}{%endblock a-href-contacto%}
+
+
+{%block class-noticias%}disabled{%endblock class-noticias%}
+
+{% block body %}
+
+{% block boton-login %}{% endblock boton-login %}
+
+<div class="container-fluid">
+    <h3></h3>
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Iniciar sesión</h5>
+                    </div>
+                    <!--
+                    <div class="card-body align-self-center">
+                        <label for="usuario">Usuario</label>
+                        <input type="text">
+                    </div>
+                    <div class="card-body align-self-center">
+                        <label for="contrasenia">Contraseña</label>
+                        <input type="text">
+                    </div>
+                    -->
+                    <div class="card-body align-self-center">
+                        {{ formulario.as_p }}
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" type="submit">Ingresar</button>
+                        <a href="{% url 'registrar' %}"><button class="btn btn-primary" type="button">Registrarse</button></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
+
+{% block enlaces %}{% endblock enlaces %}
