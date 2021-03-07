@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'tublogApp',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -115,6 +119,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LOGIN_REDIRECT_URL = reverse_lazy('base')
 
 
 # Static files (CSS, JavaScript, Images)
