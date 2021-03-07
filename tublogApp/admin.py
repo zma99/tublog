@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Usuario, Posteo, Contacto, Comentario
-
-# Register your models here.
+from .models import Usuario, Comentario, Posteo, Contacto
 
 admin.site.register(Usuario)
 admin.site.register(Comentario)
