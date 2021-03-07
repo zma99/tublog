@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block titulo %}TITUTLO{% endblock titulo %}</title>
+  <title>{% block titulo %}TITUTLO{% endblock titulo %}</title>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="/static/css/styles.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="/static/css/styles.css">
 
-    {# Cargamos la librería #}
+  <!-- Archivos font awesome -->
+  <script src="https://kit.fontawesome.com/6950bc4c1a.js" crossorigin="anonymous"></script>
+
+  
+  {# Cargamos la librería #}
 	{% load bootstrap4 %}
  
 	{# CSS Bootstrap #}
@@ -136,16 +140,6 @@
 		           </address>
                 </div>
                 --> 
-                <div class="col-12 col-sm-4 align-self-center">
-                    <div class="text-center">
-                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus fa-lg"></i></a>
-                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
-                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
-                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter fa-lg"></i></a>
-                        <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube fa-lg"></i></a>
-                        <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope fa-lg"></i></a>
-                    </div>
-                </div>
            </div>
            <div class="row justify-content-center">             
                 <div class="col-auto">
@@ -157,5 +151,6 @@
 
     {# JS y jQuery Bootstrap #}
 	{% bootstrap_javascript jquery='full' %}
+
 </body>
 </html>
