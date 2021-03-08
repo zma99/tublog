@@ -38,22 +38,8 @@
                 <li class="nav-item">
                   <a class="nav-link {%block class-a-inicio%}active{%endblock class-a-inicio%}" aria-current="page" href="{%block a-href-inicio%}{%endblock a-href-inicio%}">Inicio</a>
                 </li>
-                
-                
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle {%block class-noticias%}{%endblock class-noticias%}" href="{% url 'noticias' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Noticias
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Deportes</a>
-                    <a class="dropdown-item" href="#">Política</a>
-                    <a class="dropdown-item" href="#">Tecnología</a>
-                  </div>
-                </li>
-  
-                
                 <li class="nav-item">
-                  <a class="nav-link {%block class-a-posteos%}{%endblock class-a-posteos%}" href="{% url 'posteos' %}">Posteos</a>
+                  <a class="nav-link {%block class-a-posteos%}{%endblock class-a-posteos%}" href="{% url 'postear' %}">Postear</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link {%block class-a-nosotros%}{%endblock class-a-nosotros%}" href="{%block a-href-nosotros%}{% url 'nosotros' %}{%endblock a-href-nosotros%}">Nosotros</a>
@@ -64,13 +50,30 @@
               </ul>
               {% block boton-login %}
               <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <a href="{% url 'login' %}">
-                      <button class="btn btn-primary" data-toggle="modal" data-target="#ventanaLogin">
-                        Inicar sesión
-                      </button>
-                    </a>
-                  </li>
+
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a href="#">
+                    <button type="button" class="btn btn-link">{{ user.username }}</button>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'logout' %}">
+                    <button class="btn btn-secondary btn-sm">Cerrar sesión</button>
+                  </a>
+                </li>
+                {% endif %}
+                
+                {% if not user.is_authenticated %}
+                <li class="nav-item">
+                  <a href="{% url 'login' %}">
+                    <button class="btn btn-primary">
+                      Inicar sesión
+                    </button>
+                  </a>
+                </li>
+                {% endif %}
+
               </ul>
               {% endblock boton-login %}
             </div>
@@ -78,39 +81,6 @@
         {% endblock nav %}
     </nav>
 
-    <!-- Model Login
-    <div id="ventanaLogin" class="modal fade" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Inicio de sesión</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Correo</label>
-                      <input type="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Recordar mi correo</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Ingresar</button>
-                    <a class="btn btn-primary" href="{% url 'registrar' %}">Registrarse</a>
-                </form>
-            </div>
-
-          </div>
-        </div>
-    </div>
-    -->
 
     <!-- Encabezado -->
     <header>
@@ -133,7 +103,7 @@
                     <h5>Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="">Inicio</a></li>
-                        <li><a href="">Posteos</a></li>
+                        <li><a href="">Postear</a></li>
                         <li><a href="">Nosotros</a></li>
                         <li><a href="">Contacto</a></li>
                     </ul>
