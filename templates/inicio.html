@@ -4,7 +4,84 @@
 
 {% block body %}
 
-<h1>Página de inicio</h1>
+
+
+<div class="container">
+    <div class="row row-content justify-content-center">
+        <div class="col-sm">
+            <div class="mx-auto" style="width: 800px;">
+                <h3 class="img-fluid" alt="Responsive image">BIENVENIDOS A LA MEJOR PAGINA DE BLOGS!!!</h3>
+            </div>
+
+            <div id="carousel1" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel1" data-slide-to="1"></li>
+                    <li data-target="#carousel1" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100"
+                            src="https://neoattack.com/wp-content/uploads/2016/07/Im%C3%A1genes-Gratuitas-%E2%9E%A8-20-Bancos-para-uso-comercial5.jpg"
+                            class="img-fluid" alt="Responsive image" width="1300" height="250">
+                        <div class="carousel-caption d-none d-md-block">
+                            <p class="text-center" class="font-weight-bold">GENERA RECUERDOS.</p>
+                            <p>Que duren para siempre</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoPaW2DFfCNnojQpUtKCX5mIgvp9PwHzzkSg&usqp=CAU"
+                            class="img-fluid" alt="Responsive image" width="1300" height="250">
+                        <div class="carousel-caption d-none d-md-block">
+                            <p class="text-center" class="font-weight-bold">GENERA RECUERDOS.</p>
+                            <p>Que duren para siempre</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"
+                            src="data:image/jpeg;base64,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"
+                            class="img-fluid" alt="Responsive image" width="1300" height="250">
+                        <div class="carousel-caption d-none d-md-block">
+                            <p class="text-center" class="font-weight-bold">DISFRUTA LA VIDA.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-ms-auto">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://i0.wp.com/www.periodismo.com/wp-content/subid/photo-1441716844725-09cedc13a4e7.jpg?fit=1080%2C720&ssl=1" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+
+        </div>
+    </div>
+</div>
+
+
+
 
 
 {% endblock body %}

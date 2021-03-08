@@ -1,4 +1,16 @@
+body {
+    background-color: rgba(43, 226, 104, 0.253)
+}
+
 .footer {
     background-color: #D1C4E9;
     margin: 0px auto;
     padding: 20px 0px; }
+
+#carousel1 img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
