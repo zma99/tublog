@@ -6,7 +6,7 @@ from django.utils import timezone
 class Comentario(models.Model):
     id_comentario = models.AutoField(primary_key=True)
 
-class Posteo(models.Model):
+class Post(models.Model):
     id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=20)
     descripcion = models.TextField(blank=True)
