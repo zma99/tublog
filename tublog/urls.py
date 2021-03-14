@@ -28,5 +28,6 @@ urlpatterns = [
     path('postear/', views.postear, name='postear'),
     path('nosotros/', views.nosotros, name='nosotros'),
     path('contacto/', views.contacto, name='contacto'),
-    path('accounts/', include('django.contrib.auth.urls')), 
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('registro/', views.registro, name='registro'),
 ]
