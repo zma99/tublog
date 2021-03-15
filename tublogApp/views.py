@@ -3,14 +3,18 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
 from .forms import formContacto, nuevoUsuario
+from .models import Post
 
 def base(request):
 
     return inicio(request)
 
 def inicio(request):
-    
-    return render(request, 'inicio.html')
+    posteos = Post.objects.all()
+    contexto = {
+        'posteos':posteos
+    }
+    return render(request, 'inicio.html', contexto)
 
 
 @login_required
