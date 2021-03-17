@@ -25,9 +25,13 @@
                     <div class="card-body align-self-center">
                         <form method="POST">
                             {% csrf_token %}
-                            {{ form }}
+                            <table>
+                                {{ form.as_table }}
+                            </table>
+                            <br>
                             <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Ingresar</button>
+                                <a href="{% url 'registro' %}"><button class="btn btn-primary" type="button">Registrarse</button></a>
                                 {# <!-- <a href="{% url 'registrar' %}"><button class="btn btn-primary" type="button">Registrarse</button></a> --> #}
                             </div>
                         </form>
