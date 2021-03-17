@@ -4,6 +4,7 @@
 
 {% block body %}
 
+<h1>Página de inicio</h1><br>
 <style> 
     body {
     background-color:rgba(43, 226, 150, 0.452)
@@ -70,26 +71,23 @@
     </div>
 </div>
 
-
 <hr>
 <div class="container">
     <div class="row">
-        <div class="col-ms-auto">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://i0.wp.com/www.periodismo.com/wp-content/subid/photo-1441716844725-09cedc13a4e7.jpg?fit=1080%2C720&ssl=1" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+        {% for post in posteos %}
+            <div class="col-sm">
+                <div class="card">
+                    <h3 class="card-header card-title post-titulo">{{ post.titulo }}</h3>
+                    <div class="card-body">
+                        <img class="img-fluid" src="media/{{ post.imagen }}">
+                        <hr>
+                        <p class="post-descripcion">{{ post.descripcion }}</p>
+                    </div>
                 </div>
-              </div>
-
-        </div>
+            </div>
+        {% endfor %}
     </div>
 </div>
-
-
-
 
 
 {% endblock body %}

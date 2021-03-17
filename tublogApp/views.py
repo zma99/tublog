@@ -1,15 +1,20 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required, permission_required
-from .forms import formContacto
+from django.contrib.auth import login, authenticate
+from .forms import formContacto, nuevoUsuario
+from .models import Post
 
 def base(request):
 
     return inicio(request)
 
 def inicio(request):
-    
-    return render(request, 'inicio.html')
+    posteos = Post.objects.all()
+    contexto = {
+        'posteos':posteos
+    }
+    return render(request, 'inicio.html', contexto)
 
 
 @login_required
@@ -39,4 +44,27 @@ def contacto(request):
         return redirect('inicio')
     
     return render(request, 'contacto.html', contexto)
+
+
+
+def registro(request):
+    contexto = {
+        'form':nuevoUsuario()
+    }
+
+    if request.method == 'GET':
+        formulario = nuevoUsuario()
+
+    if request.method == 'POST':
+        formulario = nuevoUsuario(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            username = formulario.cleaned_data['username']
+            password = formulario.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect(to='inicio')
+            
+
+    return render(request, 'registration/registro.html', contexto)
 
