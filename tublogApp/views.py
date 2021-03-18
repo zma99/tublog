@@ -5,6 +5,7 @@ from django.contrib.auth import login, authenticate
 from .forms import formContacto, nuevoUsuario
 from .models import Post
 
+
 def base(request):
 
     return inicio(request)
@@ -68,3 +69,7 @@ def registro(request):
 
     return render(request, 'registration/registro.html', contexto)
 
+
+def perfil(request):
+    usuario = user.username
+    return render(request, 'perfil.html')

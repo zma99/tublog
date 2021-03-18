@@ -29,6 +29,7 @@ urlpatterns = [
     path('contacto/', views.contacto, name='contacto'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('registro/', views.registro, name='registro'),
+    path('perfil/<usuario>', views.perfil, name='perfil'),
 ]
 
 # Añade la ruta 'media'
